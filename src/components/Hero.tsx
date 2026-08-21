@@ -50,9 +50,6 @@ export function Hero() {
       <ShaderGradientCanvas style={{ position: "absolute", inset: 0 }}>
         <ShaderGradient
           animate="on"
-          axesHelper="on"
-          bgColor1="#000000"
-          bgColor2="#000000"
           brightness={1.1}
           cAzimuthAngle={0}
           cDistance={7.1}
@@ -61,16 +58,9 @@ export function Hero() {
           color1="#1a2e26"
           color2="#43b175"
           color3="#0e6ba8"
-          destination="onCanvas"
-          embedMode="off"
           envPreset="city"
-          format="gif"
-          fov={45}
-          frameRate={10}
-          gizmoHelper="hide"
           grain="off"
           lightType="3d"
-          pixelDensity={1}
           positionX={0}
           positionY={0}
           positionZ={0}
