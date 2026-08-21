@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+
+:root {
+  --white-smoke: #f2f5f3;
+  --evergreen: #1a2e26;
+  --jungle-green: #43b175;
+  --blue-green: #07a0c3;
+  --cornflower-ocean: #0e6ba8;
+
+  --evergreen-deep: #101f19;
+  --evergreen-soft: #24392f;
+  --line: rgba(242, 245, 243, 0.1);
+
+  --font-display: "Oswald", sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Source Serif 4", ui-monospace, system-ui, serif;
+}
+
+@theme {
+  --color-white-smoke: var(--white-smoke);
+  --color-evergreen: var(--evergreen);
+  --color-evergreen-deep: var(--evergreen-deep);
+  --color-evergreen-soft: var(--evergreen-soft);
+  --color-jungle-green: var(--jungle-green);
+  --color-blue-green: var(--blue-green);
+  --color-cornflower-ocean: var(--cornflower-ocean);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --sb-track-color: #1a2e26;
+  --sb-thumb-color: #43b175;
+  --sb-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--evergreen);
+  color: var(--white-smoke);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+      scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+::selection {
+  background: var(--jungle-green);
+  color: var(--evergreen-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--jungle-green);
+  outline-offset: 3px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
