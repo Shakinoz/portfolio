@@ -1,4 +1,4 @@
-name: Deploy Angular to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -19,32 +19,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20
           cache: npm
-
-      - name: Setup npm
-        run: npm install -g npm@11.6.1
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular app for project pages
-        run: npm run build -- --configuration production --base-href "/${{ github.event.repository.name }}/"
+      - name: Build app
+        run: npm run build
 
       - name: SPA fallback and nojekyll
         run: |
-          cp dist/Potfolio/browser/index.html dist/Potfolio/browser/404.html
-          touch dist/Potfolio/browser/.nojekyll
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/Potfolio/browser
+          path: dist
 
   deploy:
     environment:
@@ -55,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
