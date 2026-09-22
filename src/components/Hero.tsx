@@ -47,7 +47,10 @@ function RoleRotator() {
 export function Hero() {
   return (
     <section className="relative flex min-h-[95vh] items-center overflow-hidden">
-      <ShaderGradientCanvas style={{ position: "absolute", inset: 0 }}>
+      <ShaderGradientCanvas
+        style={{ position: "absolute", inset: 0 }}
+        lazyLoad={false}
+      >
         <ShaderGradient
           animate="on"
           brightness={1.1}
