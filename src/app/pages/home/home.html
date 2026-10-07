@@ -1,0 +1,23 @@
+<section class="hero page-shell">
+  <app-parallax-shapes />
+  <div class="hero-content">
+    <p class="eyebrow"><span>{{ profile.location }}</span><span>{{ profile.jobSearch }}</span></p>
+    <app-hero-title [name]="profile.name" />
+    <p class="hero-sub">
+      <b>{{ profile.role }}.</b><br>
+      {{ profile.summary }}
+    </p>
+    <div class="actions">
+      <a class="btn" routerLink="/projets" appMagnetic data-cursor-label="Voir">
+        Voir mes projets
+      </a>
+      <a class="btn alt" routerLink="/contact" appMagnetic data-cursor-label="Écrire">
+        Me contacter
+      </a>
+      <a class="btn cv-button" href="/cv-marcel-shakirov.pdf" download="Marcel-Shakirov-CV.pdf" appMagnetic
+        data-cursor-label="CV">
+        Télécharger mon CV <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+  </div>
+</section>

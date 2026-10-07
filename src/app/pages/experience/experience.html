@@ -1,0 +1,44 @@
+<section class="page-shell">
+  <app-page-heading eyebrow="Parcours" title="Expériences et études" />
+
+  <section aria-labelledby="experience-title">
+    <h2 id="experience-title">Expériences professionnelles</h2>
+    <div class="timeline">
+      <div class="tl-line" aria-hidden="true"></div>
+      @for (experience of experiences; track experience.company; let index = $index) {
+        <app-experience-card
+          #timelineItem
+          [experience]="experience"
+          [entered]="enteredItems().has(index)"
+        />
+      }
+    </div>
+  </section>
+
+  <section aria-labelledby="education-title">
+    <h2 id="education-title">Formation</h2>
+    <div class="education-list">
+      @for (study of education; track study.school) {
+        <app-education-card [education]="study" />
+      }
+    </div>
+  </section>
+
+  <section aria-labelledby="skills-title">
+    <h2 id="skills-title">Compétences</h2>
+    <div class="skill-groups">
+      @for (category of skills; track category.label) {
+        <app-skill-group [category]="category" />
+      }
+    </div>
+  </section>
+
+  <section aria-labelledby="languages-title">
+    <h2 id="languages-title">Langues</h2>
+    <ul class="languages">
+      @for (language of languages; track language.name) {
+        <li><strong>{{ language.name }}</strong><span>{{ language.level }}</span></li>
+      }
+    </ul>
+  </section>
+</section>

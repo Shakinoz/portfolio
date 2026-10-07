@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.page-header {
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+h1 {
+  margin: 0.5rem 0;
+  color: var(--sapin);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.description {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--muted-description);
+  line-height: 1.65;
+}

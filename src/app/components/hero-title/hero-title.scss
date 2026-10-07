@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+h1 {
+  margin: 1rem 0;
+  color: var(--sapin);
+  font-size: clamp(4rem, 13vw, 9rem);
+  font-variation-settings:
+    'wght' 300,
+    'wdth' 100;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+}
+
+h1 span {
+  display: inline-block;
+  font-variation-settings: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  h1,
+  h1 span {
+    font-variation-settings:
+      'wght' 500,
+      'wdth' 100 !important;
+  }
+}

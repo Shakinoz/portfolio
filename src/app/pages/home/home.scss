@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  min-height: calc(100svh - 5rem);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: calc(100svh - 5rem);
+  align-items: center;
+  overflow: hidden;
+  padding: 4rem 0;
+  isolation: isolate;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 690px);
+}
+
+.eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: var(--muted-strong);
+  font-size: 0.95rem;
+}
+
+.hero-sub {
+  max-width: 54ch;
+  margin-top: 1.5rem;
+  color: var(--muted-body);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.hero-sub b {
+  color: var(--ocean);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--blue-strong);
+  border-radius: 999px;
+  background: var(--blue-strong);
+  box-shadow: 0 7px 0 -2px var(--green-strong);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    translate 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.btn:active {
+  translate: 0 4px;
+  box-shadow: 0 3px 0 -2px var(--green-strong);
+}
+
+.btn.alt {
+  border-color: var(--sable);
+  background: var(--sable);
+  box-shadow: 0 7px 0 -2px #b68c52;
+  color: var(--text-on-light);
+}
+
+.btn.cv-button {
+  border-color: var(--green-strong);
+  background: var(--surface-raised);
+  box-shadow: 0 7px 0 -2px var(--green-strong);
+  color: var(--sapin);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--ocean);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background: var(--green-strong);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: calc(100svh - 8rem);
+    padding-block: 3rem;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btn {
+    width: fit-content;
+  }
+
+  .eyebrow {
+    gap: 0rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

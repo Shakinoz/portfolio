@@ -1,0 +1,14 @@
+<a
+  class="contact-link"
+  appMagnetic
+  [href]="href()"
+  [target]="external() ? '_blank' : null"
+  [rel]="external() ? 'noopener noreferrer' : null"
+  [attr.data-cursor-label]="label()"
+>
+  <span>{{ label() }}</span>
+  @if (external()) {
+    <span class="external-icon" aria-hidden="true">↗</span>
+    <span class="visually-hidden"> (ouvre un nouvel onglet)</span>
+  }
+</a>

@@ -1,0 +1,48 @@
+:host {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  will-change: transform;
+  opacity: 0.8;
+}
+
+.shape svg {
+  display: block;
+  max-width: min(100%, 180px);
+  height: auto;
+  animation: float 7s ease-in-out infinite alternate;
+}
+
+.shape:nth-child(even) svg {
+  animation-delay: -2s;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-18px) rotate(8deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .shape {
+    opacity: 0.22;
+  }
+
+  .shape:nth-child(2),
+  .shape:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shape,
+  .shape svg {
+    animation: none;
+  }
+}

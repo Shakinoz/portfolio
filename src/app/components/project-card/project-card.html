@@ -1,0 +1,20 @@
+<article class="card">
+  <small>{{ project().period }}</small>
+  <h2>{{ project().name }}</h2>
+  <ul class="details">
+    @for (bullet of project().bullets; track bullet) {
+    <li>{{ bullet }}</li>
+    }
+  </ul>
+  <ul class="technologies" aria-label="Technologies utilisées">
+    @for (technology of project().stack; track technology) {
+    <li>{{ technology }}</li>
+    }
+  </ul>
+  @if (project().link) {
+  <a class="project-link" appMagnetic [href]="project().link" target="_blank" rel="noopener noreferrer">
+    {{ actionLabel }}
+    <span class="visually-hidden"> : {{ project().name }}</span>
+  </a>
+  }
+</article>

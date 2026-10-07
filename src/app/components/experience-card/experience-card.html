@@ -1,0 +1,16 @@
+<article>
+  <button class="experience-toggle" [attr.aria-expanded]="expanded()" (click)="toggle()">
+    <small>{{ experience().period }}</small>
+    <span class="experience-heading">
+      <span>{{ experience().role }}</span>
+      <span class="separator" aria-hidden="true">·</span>
+      <span>{{ experience().company }}</span>
+    </span>
+    <span class="toggle-indicator" aria-hidden="true">{{ expanded() ? '−' : '+' }}</span>
+  </button>
+  <ul [class.expanded]="expanded()">
+    @for (bullet of experience().bullets; track bullet) {
+      <li>{{ bullet }}</li>
+    }
+  </ul>
+</article>

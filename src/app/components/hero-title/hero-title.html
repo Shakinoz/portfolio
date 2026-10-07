@@ -1,0 +1,10 @@
+<h1 [attr.aria-label]="name()">
+  @for (line of lines(); track $index; let last = $last) {
+    @for (letter of line; track $index) {
+      <span #letterElement aria-hidden="true">{{ letter }}</span>
+    }
+    @if (!last) {
+      <br />
+    }
+  }
+</h1>

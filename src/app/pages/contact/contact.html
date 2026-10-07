@@ -1,0 +1,23 @@
+<section class="page-shell">
+  <app-page-heading eyebrow="Contact" title="Parlons-nous"
+    description="Je cherche un poste de développeur dans le Nord (59). Écris-moi, je réponds vite." />
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <label for="nom">Ton nom</label>
+    <input id="nom" name="nom" formControlName="nom" autocomplete="name" required />
+
+    <label for="msg">Ton message</label>
+    <textarea id="msg" name="msg" formControlName="msg" rows="5" required></textarea>
+
+    <button #submitButton class="btn" type="submit" appMagnetic data-cursor-label="Envoyer"
+      [disabled]="contactForm.invalid || sending()">
+      {{ sending() ? 'Message prêt !' : 'Envoyer le message' }}
+    </button>
+  </form>
+
+  <nav class="links" aria-label="Autres moyens de contact">
+    @for (link of contactLinks; track link.label) {
+    <app-contact-link [href]="link.href" [label]="link.label" [external]="link.external" />
+    }
+  </nav>
+</section>

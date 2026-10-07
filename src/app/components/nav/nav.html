@@ -1,0 +1,46 @@
+<header>
+  <a class="brand" routerLink="/" aria-label="Portfolio — accueil">Marcel Shakirov</a>
+  <nav aria-label="Navigation principale">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Accueil
+    </a>
+    <a routerLink="/experiences-etudes" routerLinkActive="active">Parcours</a>
+    <a routerLink="/projets" routerLinkActive="active">Projets</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  </nav>
+  <button
+    class="theme-toggle"
+    type="button"
+    [attr.aria-label]="theme.isDark() ? 'Activer le thème clair' : 'Activer le thème sombre'"
+    [attr.aria-pressed]="theme.isDark()"
+    (click)="theme.toggle()"
+  >
+    <span class="theme-icon" aria-hidden="true">
+      @if (theme.isDark()) {
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <circle cx="12" cy="12" r="4.2" fill="currentColor" />
+          <path
+            d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.93 4.93l1.7 1.7M17.37 17.37l1.7 1.7M19.07 4.93l-1.7 1.7M6.63 17.37l-1.7 1.7"
+          />
+        </svg>
+      } @else {
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linejoin="round"
+        >
+          <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" />
+          <path d="M18 3.2l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" stroke-width="1" />
+        </svg>
+      }
+    </span>
+  </button>
+</header>

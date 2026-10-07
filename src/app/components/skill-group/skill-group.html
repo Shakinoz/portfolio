@@ -1,0 +1,8 @@
+<article class="skill-group">
+  <h3>{{ category().label }}</h3>
+  <ul>
+    @for (skill of category().items; track skill) {
+      <li>{{ skill }}</li>
+    }
+  </ul>
+</article>
